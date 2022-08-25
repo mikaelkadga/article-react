@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Biodata from './components/Biodata';
+import Pendidikan from './components/Pendidikan';
+import Tambah from './components/Tambah';
+import Tambah2 from './components/Tambah2';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Biodata />
+      <Pendidikan />
+      <Tambah />
+      <Tambah2 />
     </div>
   );
 }
