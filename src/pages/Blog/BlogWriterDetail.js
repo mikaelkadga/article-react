@@ -44,7 +44,7 @@ const convertElipsisTitle = (body) => {
     }
 
 
-    if (cookies.accessToken !== "undefined" && cookies.user.id !== "undefined") {
+    if (cookies.accessToken) {
       return (
         <div className="mt-5">
           <Button 
