@@ -23,7 +23,7 @@ const App = () => {
                     <Route path="/blog/:postId" element={<BlogDetail />} />
                     <Route path="/myposts" element={<BlogWriterDetail />} />
                     <Route path="/createpost" element={<CreatePost />} />
-                    <Route path="/editpost/:userId" element={<EditPost />} />
+                    <Route path="/editpost/:postId" element={<EditPost />} />
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/login" element={<Login />} />
                 </Routes>

@@ -2,14 +2,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function Registration() {
 
     const [values, setValues] = useState({});
-    const [cookies, setCookies] = useCookies(["accessToken", "userId", "email"]);
     const navigate = useNavigate();
 
     const handleOnChange = (e) => {

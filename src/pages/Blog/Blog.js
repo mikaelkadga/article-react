@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Card1 from "../../components/Card"
-import { Button } from "react-bootstrap";
+import Card1 from "../../components/Card";
 
 const Blog = (props) => {
 
