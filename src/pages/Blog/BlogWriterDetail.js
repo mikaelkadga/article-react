@@ -46,7 +46,7 @@ const convertElipsisTitle = (body) => {
     if (!cookies.accessToken) {
       return(
         <div style={{
-          height: '650px',
+          height: '600px',
           // border: 'solid 1px black',
           justifyContent: 'center', //Centered horizontally
           alignItems: 'center', //Centered vertically
