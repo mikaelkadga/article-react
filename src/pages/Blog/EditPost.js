@@ -21,8 +21,8 @@ const EditPost = () => {
     }
 
     const handleOnChange = (e) => {
-        setEditedData({ ...editedData, [e.target.name]: e.target.value });
-        console.log(editedData)
+        setData({ ...data, [e.target.name]: e.target.value });
+        console.log(data)
     };
 
     const handleSubmit = (e) => {
@@ -30,7 +30,7 @@ const EditPost = () => {
         axios
           .put(
             `http://localhost:8000/post/${postId}?writer=${cookies.user.id}`, 
-            editedData,
+            data,
             {
               headers: {
                 Authorization: `Bearer ${cookies.accessToken}`,
