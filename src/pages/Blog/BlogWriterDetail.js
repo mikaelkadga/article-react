@@ -73,7 +73,7 @@ const convertElipsisTitle = (body) => {
         <div className="row">
           {data?.map((p, idx) => {
                   return (
-                      <div className="col-md mb-4" key={idx}>                           
+                      <div className="col-md-4 mb-4" key={idx}>                           
                               <Card1 
                               title={convertElipsisTitle(p.title)} 
                               body={convertElipsisBody(p.body)} 
@@ -82,7 +82,7 @@ const convertElipsisTitle = (body) => {
                               image={p.image}
                               imageWidth="100px"
                               onClick={() => handleClick(p.id)} 
-                              width="25rem"
+                              // width="25rem"
                               height="100%"/>
                       </div>
                   )

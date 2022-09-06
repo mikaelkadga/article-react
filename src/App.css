@@ -6,3 +6,9 @@
   font-family: 'Roboto Mono', monospace;
 }
 
+@media screen and (max-width: 992px) {
+  .font-small {
+    font-size: 0.6rem;
+  }
+}
+

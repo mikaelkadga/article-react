@@ -35,7 +35,7 @@ const Blog = (props) => {
         <div className="row mt-5">
             {posts.map((post, idx) => {
                 return (
-                    <div className="col-md mb-4" key={idx}>                           
+                    <div className="col-md-4 mb-4" key={idx}>                           
                             <Card1 
                             title={convertElipsisTitle(post.title)} 
                             body={convertElipsisBody(post.body)} 
@@ -44,7 +44,7 @@ const Blog = (props) => {
                             image={post.image}
                             imageWidth="100px"
                             onClick={() => handleClick(post.id)} 
-                            width="25rem"
+                            // width="25rem"
                             height="100%"/>
                     </div>
                 )

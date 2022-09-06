@@ -36,10 +36,20 @@ const CreatePost = () => {
       };
 
     return (
-        
-        <div className='w-100 my-5 d-flex justify-content-center align-items-center' style={{height: "70vh"}}>
-            <Form className="w-100 mt-5" onSubmit={handleSubmit}>               
-                <h3 className='mb-5'>create post</h3>    
+      <div>
+        <div className="d-flex flex-row mt-5 justify-content-between">
+        <h3 className=''>create post</h3>
+          <Button 
+          variant="dark" 
+          className="align-self-start" 
+          onClick={() => {
+              navigate(-1);
+          }}>
+              back
+          </Button>
+        </div>
+        <div className='w-100 mt-4 d-flex justify-content-center align-items-center' style={{height: "70vh"}}>
+            <Form className="w-100" onSubmit={handleSubmit}>                 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>title</Form.Label>
                     <Form.Control type="text" placeholder="your post title" name="title" onChange={handleOnChange} />
@@ -57,7 +67,7 @@ const CreatePost = () => {
                 </Button>
             </Form>
         </div>
-        
+      </div>
     )
 }
 

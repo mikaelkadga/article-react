@@ -1,11 +1,11 @@
 import { Form, Button } from "react-bootstrap"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditPost = () => {
-    const [data, setData] = useState({})
+    const [data, setData] = useState({});
     const [editedData, setEditedData] = useState({})
     const navigate = useNavigate()
     const {postId} = useParams()
@@ -48,23 +48,27 @@ const EditPost = () => {
 
       useEffect(() => {
         fetchSinglePost()
-        console.log(postId)
+        // console.log(postId)
     }, [])
 
     
 
     return (
-        <div className='w-100 mt-5 d-flex flex-column justify-content-center align-items-center' style={{height: "70vh"}}>
-            {/* <Button 
-            variant="dark" 
-            className="align-self-start mb-4" 
-            onClick={() => {
-                navigate(-1);
-            }}>
-                back
-            </Button> */}
-            <Form className="w-100 mt-5" onSubmit={handleSubmit}>
-                <h3 className='mb-5'>edit post</h3>
+      <div>
+        <div className="d-flex flex-row mt-5 justify-content-between">
+        <h3 className=''>edit post</h3>
+          <Button 
+          variant="dark" 
+          className="align-self-start" 
+          onClick={() => {
+              navigate(-1);
+          }}>
+              back
+          </Button>
+        </div>
+        
+        <div className='w-100 mt-4 d-flex flex-column justify-content-center align-items-center' style={{height: "70vh"}}>
+            <Form className="w-100" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>title</Form.Label>
                     <Form.Control type="text" placeholder="your post title" defaultValue={data.title} onChange={handleOnChange} name="title" />
@@ -78,10 +82,12 @@ const EditPost = () => {
                     <Form.Control as="textarea" rows={10} placeholder="your post content" defaultValue={data.body} onChange={handleOnChange} name="body" />
                 </Form.Group>
                 <Button variant="dark" type="submit">
-                    submit
+                    save changes
                 </Button>
             </Form>
         </div>
+      </div>
+      
     )
 }
 

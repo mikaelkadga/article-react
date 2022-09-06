@@ -28,7 +28,7 @@ const BlogDetail = () => {
 
 
     return (
-        <div className="d-flex flex-column align-items-center mt-5" style={{width:"100%"}}>
+        <div className="d-flex flex-column align-items-center mt-5 mb-5" style={{width:"100%"}}>
           <button
           className="align-self-start rounded mb-4"
             onClick={() => {
