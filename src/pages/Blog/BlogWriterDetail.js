@@ -24,11 +24,11 @@ const convertElipsisTitle = (body) => {
     return body.length > 70 ? body.slice(0,70) + "..." : body
 }
 
-    useEffect(() => {
-      // console.log(cookies.user.id)
-      // console.log(data)
-      fetchSingleWriter()
-    }, [])
+    // useEffect(() => {
+    //   // console.log(cookies.user.id)
+    //   // console.log(data)
+    //   fetchSingleWriter()
+    // }, [])
 
     const  fetchSingleWriter = () => {
         axios
@@ -43,51 +43,52 @@ const convertElipsisTitle = (body) => {
             .catch(err => console.error(err))
     }
 
-
-    if (cookies.accessToken) {
-      return (
-        <div className="mt-5">
-          <Button 
-          variant="dark" 
-          className="align-self-end mb-4" 
-          onClick={() => {
-            navigate(`/createpost`);
-          }}>
-              create post
-          </Button>
-          <div className="row">
-            {data?.map((p, idx) => {
-                    return (
-                        <div className="col-md mb-4" key={idx}>                           
-                                <Card1 
-                                title={convertElipsisTitle(p.title)} 
-                                body={convertElipsisBody(p.body)} 
-                                button={true}
-                                buttonText="edit"
-                                image={p.image}
-                                imageWidth="100px"
-                                onClick={() => handleClick(p.id)} 
-                                width="25rem"
-                                height="100%"/>
-                        </div>
-                    )
-                })}
-          </div>
-        </div>
+    if (!cookies.accessToken) {
+      return(
+        <div style={{
+          height: '650px',
+          // border: 'solid 1px black',
+          justifyContent: 'center', //Centered horizontally
+          alignItems: 'center', //Centered vertically
+          display: "flex",
+          marginTop:"1rem"
+       }}>
+          <h1 className="text-center mt-6">sign in, please</h1>
+      </div>
       )
+    } else {
+      fetchSingleWriter()
     }
 
-    return(
-      <div style={{
-        height: '650px',
-        // border: 'solid 1px black',
-        justifyContent: 'center', //Centered horizontally
-        alignItems: 'center', //Centered vertically
-        display: "flex",
-        marginTop:"1rem"
-     }}>
-        <h1 className="text-center mt-6">sign in, please</h1>
-    </div>
+    return (
+      <div className="mt-5">
+        <Button 
+        variant="dark" 
+        className="align-self-end mb-4" 
+        onClick={() => {
+          navigate(`/createpost`);
+        }}>
+            create post
+        </Button>
+        <div className="row">
+          {data?.map((p, idx) => {
+                  return (
+                      <div className="col-md mb-4" key={idx}>                           
+                              <Card1 
+                              title={convertElipsisTitle(p.title)} 
+                              body={convertElipsisBody(p.body)} 
+                              button={true}
+                              buttonText="edit"
+                              image={p.image}
+                              imageWidth="100px"
+                              onClick={() => handleClick(p.id)} 
+                              width="25rem"
+                              height="100%"/>
+                      </div>
+                  )
+              })}
+        </div>
+      </div>
     )
     
     

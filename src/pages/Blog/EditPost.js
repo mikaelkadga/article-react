@@ -29,7 +29,7 @@ const EditPost = () => {
         e.preventDefault();
         axios
           .put(
-            `http://localhost:8000/post/${postId}?writer=${cookies.user.id}`,
+            `http://localhost:8000/post/${postId}?writer=${cookies.user.id}`, 
             editedData,
             {
               headers: {
