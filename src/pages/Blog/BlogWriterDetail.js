@@ -42,23 +42,25 @@ const convertElipsisTitle = (body) => {
             })
             .catch(err => console.error(err))
     }
-
-    if (!cookies.accessToken) {
-      return(
-        <div style={{
-          height: '600px',
-          // border: 'solid 1px black',
-          justifyContent: 'center', //Centered horizontally
-          alignItems: 'center', //Centered vertically
-          display: "flex",
-          marginTop:"1rem"
-       }}>
-          <h1 className="text-center mt-6">sign in, please</h1>
-      </div>
-      )
-    } else {
-      fetchSingleWriter()
-    }
+    
+    useEffect(() => {
+      if (!cookies.accessToken) {
+        return(
+          <div style={{
+            height: '600px',
+            // border: 'solid 1px black',
+            justifyContent: 'center', //Centered horizontally
+            alignItems: 'center', //Centered vertically
+            display: "flex",
+            marginTop:"1rem"
+         }}>
+            <h1 className="text-center mt-6">sign in, please</h1>
+        </div>
+        )
+      } else {
+        fetchSingleWriter()
+      }
+    }, [])
 
     return (
       <div className="mt-5">
