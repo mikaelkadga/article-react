@@ -1,40 +1,38 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import jwtDecode from "jwt-decode";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../actions/auth';
 
 function Login() {
 
     const [values, setValues] = useState({});
-    const [cookies, setCookies] = useCookies(["accessToken", "user"]);
+    const [loading, setLoading] = useState(false);
+
+    const {isLoggedIn} = useSelector(state => state.auth);
+    const {message} = useSelector(state => state.message);
+
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleOnChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
+        // console.log(values)
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios
-          .post("http://localhost:8000/auth/login", values)
-          .then((res) => {
-            const { accessToken} = res.data;
-            if(accessToken) {
-                setCookies("accessToken", accessToken, { maxAge: 2000 });
-                const user = jwtDecode(accessToken);
-                setCookies("user", user, { maxAge: 60000 });
-                navigate('/myposts');  
-                // console.log(cookies)
-            } else {
-                alert("login failed")
-            }
-            // console.log(res.data)
-          })
-          .catch((err) => alert("login failed"));
-      };
+        setLoading(true)
+        dispatch(login({...values}))
+            .then(() => {
+                navigate('/myposts');
+                window.location.reload();
+            })
+            .catch(() => {
+                setLoading(false)
+            })
+    };
 
 
     return (
