@@ -1,13 +1,13 @@
 import Nav from 'react-bootstrap/Nav';
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../actions/auth';
 
 
 export const Navbar = (props) => {
     // const {isLoggedIn} = useSelector(state => state.auth)
     // const dispatch = useDispatch()
+    const {isLoggedIn} = useState(false)
 
 
   return (
@@ -48,7 +48,7 @@ export const Navbar = (props) => {
                         <Link to="/registration" style={{textDecoration: "none"}} className="text-light font-small">register</Link>
                     </Nav.Link>
                 </Nav.Item>
-                {/* {!isLoggedIn ? 
+                {!isLoggedIn ? 
                 (
                 <Nav.Item>
                     <Nav.Link>
@@ -62,7 +62,7 @@ export const Navbar = (props) => {
                         <Link to="/login" style={{textDecoration: "none"}} className="text-light font-small">logout</Link>
                     </Nav.Link>
                 </Nav.Item>
-                )} */}
+                )}
                 
             </div>
             

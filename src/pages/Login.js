@@ -2,19 +2,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../actions/auth';
 
 function Login() {
 
     const [values, setValues] = useState({});
-    const [loading, setLoading] = useState(false);
-
-    const {isLoggedIn} = useSelector(state => state.auth);
-    const {message} = useSelector(state => state.message);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handleOnChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
@@ -22,16 +15,7 @@ function Login() {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoading(true)
-        dispatch(login({...values}))
-            .then(() => {
-                navigate('/myposts');
-                window.location.reload();
-            })
-            .catch(() => {
-                setLoading(false)
-            })
+
     };
 
 
