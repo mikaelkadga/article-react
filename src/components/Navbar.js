@@ -40,6 +40,11 @@ export const Navbar = (props) => {
                         <Link to="/myposts" style={{textDecoration: "none"}} className="text-light font-small">my posts</Link>
                     </Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link>
+                        <Link to="/profile" style={{textDecoration: "none"}} className="text-light font-small">profile</Link>
+                    </Nav.Link>
+                </Nav.Item>
             </div>
             
             <div className='d-flex col-sm-3 justify-content-end'>
